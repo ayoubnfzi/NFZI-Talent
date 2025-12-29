@@ -50,56 +50,81 @@ const SERVICES = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-zinc-900">
-      <header className="sticky top-0 z-20 border-b border-zinc-200/80 bg-white/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#top" className="text-sm font-semibold tracking-tight">
+      <header className="sticky top-0 z-20 border-b border-zinc-200 bg-white/85 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
+          <a
+            href="#top"
+            className="text-sm font-semibold tracking-tight text-zinc-950"
+          >
             NFZI Talent
           </a>
-          <nav className="hidden gap-6 text-sm text-zinc-700 md:flex">
+
+          <nav className="hidden items-center gap-6 text-sm text-zinc-700 md:flex">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="transition hover:text-zinc-900"
+                className="rounded-lg px-2 py-1 transition hover:text-blue-950"
               >
                 {item.label}
               </a>
             ))}
           </nav>
+
           <a
             href="#contact"
-            className="inline-flex h-9 items-center justify-center rounded-xl bg-zinc-900 px-4 text-sm font-semibold text-white transition hover:bg-zinc-800"
+            className="inline-flex h-9 items-center justify-center rounded-lg bg-blue-950 px-4 text-sm font-semibold text-white transition hover:bg-blue-900"
           >
             Demander un échange
           </a>
         </div>
+
+        <div className="md:hidden">
+          <div className="mx-auto max-w-6xl px-6 pb-4 lg:px-8">
+            <nav className="flex gap-2 overflow-x-auto text-sm text-zinc-700 [-webkit-overflow-scrolling:touch]">
+              {NAV_ITEMS.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="whitespace-nowrap rounded-lg border border-zinc-200 bg-white px-3 py-2"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </div>
       </header>
 
       <main id="top">
-        <section className="border-b border-zinc-200/70">
-          <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-2 md:items-center md:py-24">
+        <section className="border-b border-zinc-200 bg-white">
+          <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-2 md:items-center md:py-24 lg:px-8">
             <div className="space-y-6">
-              <p className="text-sm font-medium text-zinc-600">
-                Consultant en recrutement freelance — Île-de-France
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-600">
+                Consultant en recrutement freelance • Île-de-France
               </p>
               <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
                 Recrutements stratégiques, approche humaine, résultats durables.
               </h1>
+              <div className="h-px w-16 bg-blue-950/20" aria-hidden="true" />
               <p className="max-w-xl text-lg leading-8 text-zinc-700">
                 NFZI Talent accompagne vos décisions RH avec une approche directe
                 premium, un sourcing confidentiel et une évaluation exigeante —
                 pour une short-list qualifiée et un closing sécurisé.
               </p>
+              <p className="text-sm text-zinc-600">
+                Pour les dirigeants, DRH et RRH qui recrutent en Île-de-France.
+              </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#contact"
-                  className="inline-flex h-11 items-center justify-center rounded-xl bg-zinc-900 px-6 text-sm font-semibold text-white transition hover:bg-zinc-800"
+                  className="inline-flex h-11 items-center justify-center rounded-lg bg-blue-950 px-6 text-sm font-semibold text-white transition hover:bg-blue-900"
                 >
                   Parler de votre besoin
                 </a>
                 <a
                   href="#services"
-                  className="inline-flex h-11 items-center justify-center rounded-xl border border-zinc-200 bg-white px-6 text-sm font-semibold text-zinc-900 transition hover:border-zinc-300"
+                  className="inline-flex h-11 items-center justify-center rounded-lg border border-zinc-200 bg-white px-6 text-sm font-semibold text-zinc-950 transition hover:border-zinc-300 hover:text-zinc-950"
                 >
                   Découvrir l’accompagnement
                 </a>
@@ -110,29 +135,39 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-8">
-              <div className="space-y-4">
-                <p className="text-sm font-semibold text-zinc-900">
+            <div className="rounded-2xl border border-zinc-200 bg-white p-8">
+              <div className="space-y-5">
+                <p className="text-sm font-semibold tracking-tight text-zinc-950">
                   Pour vos recrutements sur mesure
                 </p>
                 <ul className="space-y-3 text-sm text-zinc-700">
                   <li className="flex gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-zinc-900" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-950/70" />
                     Profils pénuriques et postes stratégiques
                   </li>
                   <li className="flex gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-zinc-900" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-950/70" />
                     Approche directe confidentielle
                   </li>
                   <li className="flex gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-zinc-900" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-950/70" />
                     Évaluation et short-list qualifiée
                   </li>
                   <li className="flex gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-zinc-900" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-950/70" />
                     Accompagnement jusqu’au closing
                   </li>
                 </ul>
+
+                <div className="border-t border-zinc-200 pt-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-600">
+                    Engagement
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-zinc-700">
+                    Une exécution de bout en bout, avec un suivi rapproché et des
+                    synthèses claires pour décider.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -140,18 +175,25 @@ export default function Home() {
 
         <section
           id="presentation"
-          className="scroll-mt-24 border-b border-zinc-200/70"
+          className="scroll-mt-24 border-b border-zinc-200 bg-zinc-50"
         >
-          <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-2 md:items-center">
+          <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-2 md:items-center lg:px-8">
             <div className="space-y-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-600">
+                Présentation
+              </p>
               <h2 className="text-2xl font-semibold tracking-tight">
                 Une approche exigeante et accessible
               </h2>
               <p className="leading-7 text-zinc-700">
                 NFZI Talent est un accompagnement de recrutement à destination
-                des entreprises, pensé pour les décideurs RH et business.
-                L’objectif : vous aider à recruter vite, bien, et durablement,
-                avec un haut niveau de confidentialité.
+                des entreprises, pensé pour les décideurs RH et business
+                (dirigeants, DRH, RRH).
+              </p>
+              <p className="leading-7 text-zinc-700">
+                Objectif : générer des recrutements réussis sur des postes
+                stratégiques et des profils pénuriques, avec une approche humaine
+                et un haut niveau de confidentialité.
               </p>
               <p className="leading-7 text-zinc-700">
                 Zone d’intervention : <strong>Île-de-France</strong>. La méthode
@@ -159,28 +201,41 @@ export default function Home() {
                 structurée pour sécuriser vos décisions.
               </p>
             </div>
-            <div className="flex items-center gap-6 rounded-3xl border border-zinc-200 bg-white p-6">
-              <div
-                className="h-24 w-24 rounded-2xl border border-zinc-200 bg-zinc-50"
-                aria-hidden="true"
-              />
-              <div className="space-y-1">
-                <p className="text-sm font-semibold text-zinc-900">NFZI Talent</p>
-                <p className="text-sm text-zinc-600">
-                  Consultant en recrutement freelance
-                </p>
-                <p className="text-sm text-zinc-600">Intervention : Île-de-France</p>
-              </div>
+            <div className="rounded-2xl border border-zinc-200 bg-white p-8">
+              <p className="text-sm font-semibold tracking-tight text-zinc-950">
+                En bref
+              </p>
+              <dl className="mt-5 space-y-5 text-sm">
+                <div>
+                  <dt className="font-semibold text-zinc-900">Cible</dt>
+                  <dd className="mt-1 text-zinc-700">
+                    Entreprises qui recrutent — décideurs RH & business
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-zinc-900">Zone</dt>
+                  <dd className="mt-1 text-zinc-700">Île-de-France</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-zinc-900">Engagement</dt>
+                  <dd className="mt-1 text-zinc-700">
+                    Sourcing confidentiel, suivi, et closing candidat
+                  </dd>
+                </div>
+              </dl>
             </div>
           </div>
         </section>
 
         <section
           id="services"
-          className="scroll-mt-24 border-b border-zinc-200/70"
+          className="scroll-mt-24 border-b border-zinc-200"
         >
-          <div className="mx-auto max-w-6xl px-6 py-16">
+          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
             <div className="max-w-2xl space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-600">
+                Services
+              </p>
               <h2 className="text-2xl font-semibold tracking-tight">
                 Services — une exécution de bout en bout
               </h2>
@@ -190,12 +245,16 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <div className="mt-10 grid gap-x-12 gap-y-10 md:grid-cols-2">
               {SERVICES.map((service) => (
                 <div
                   key={service.title}
-                  className="rounded-3xl border border-zinc-200 bg-white p-7"
+                  className="border-t border-zinc-200 pt-8"
                 >
+                  <div
+                    className="mb-4 h-px w-12 bg-blue-950/15"
+                    aria-hidden="true"
+                  />
                   <h3 className="text-lg font-semibold tracking-tight">
                     {service.title}
                   </h3>
@@ -224,10 +283,13 @@ export default function Home() {
 
         <section
           id="processus"
-          className="scroll-mt-24 border-b border-zinc-200/70"
+          className="scroll-mt-24 border-b border-zinc-200 bg-zinc-50"
         >
-          <div className="mx-auto max-w-6xl px-6 py-16">
+          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
             <div className="max-w-2xl space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-600">
+                Processus
+              </p>
               <h2 className="text-2xl font-semibold tracking-tight">
                 Processus de recrutement
               </h2>
@@ -237,7 +299,7 @@ export default function Home() {
               </p>
             </div>
 
-            <ol className="mt-10 grid gap-6 md:grid-cols-2">
+            <ol className="mt-10 grid gap-x-12 gap-y-10 md:grid-cols-2">
               {[
                 {
                   title: "Analyse du besoin et du contexte",
@@ -262,11 +324,14 @@ export default function Home() {
               ].map((step, idx) => (
                 <li
                   key={step.title}
-                  className="rounded-3xl border border-zinc-200 bg-white p-7"
+                  className="border-t border-zinc-200 pt-8"
                 >
-                  <p className="text-sm font-semibold text-zinc-900">
-                    {String(idx + 1).padStart(2, "0")}
-                  </p>
+                  <div className="mb-3 flex items-center gap-3">
+                    <p className="text-xs font-semibold tracking-[0.22em] text-zinc-600">
+                      {String(idx + 1).padStart(2, "0")}
+                    </p>
+                    <div className="h-px flex-1 bg-zinc-200" aria-hidden="true" />
+                  </div>
                   <h3 className="mt-2 text-lg font-semibold tracking-tight">
                     {step.title}
                   </h3>
@@ -281,10 +346,13 @@ export default function Home() {
 
         <section
           id="credibilite"
-          className="scroll-mt-24 border-b border-zinc-200/70"
+          className="scroll-mt-24 border-b border-zinc-200"
         >
-          <div className="mx-auto max-w-6xl px-6 py-16">
+          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
             <div className="max-w-2xl space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-600">
+                Crédibilité
+              </p>
               <h2 className="text-2xl font-semibold tracking-tight">
                 Chiffres clés et crédibilité
               </h2>
@@ -294,41 +362,48 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  value: "3 ans",
-                  label: "d’expérience",
-                },
-                {
-                  value: "+200",
-                  label: "recrutements réalisés",
-                },
-                {
-                  value: "Paris",
-                  label: "participation au recrutement pour les Jeux Olympiques",
-                },
-              ].map((stat) => (
-                <div
-                  key={stat.value}
-                  className="rounded-3xl border border-zinc-200 bg-white p-7"
-                >
-                  <p className="text-3xl font-semibold tracking-tight">
-                    {stat.value}
-                  </p>
-                  <p className="mt-2 text-sm text-zinc-700">{stat.label}</p>
-                </div>
-              ))}
+            <div className="mt-10 rounded-2xl border border-zinc-200 bg-white">
+              <div className="grid divide-y divide-zinc-200 md:grid-cols-3 md:divide-x md:divide-y-0">
+                {[
+                  {
+                    value: "3 ans",
+                    label: "d’expérience",
+                  },
+                  {
+                    value: "+200",
+                    label: "recrutements réalisés en 3 ans",
+                  },
+                  {
+                    value: "JO Paris",
+                    label:
+                      "accompagnement de l’organisation sur le recrutement du personnel (avant et durant l’évènement)",
+                  },
+                ].map((stat) => (
+                  <div key={stat.value} className="p-8">
+                    <div
+                      className="mb-5 h-1 w-10 rounded-full bg-blue-950/15"
+                      aria-hidden="true"
+                    />
+                    <p className="text-3xl font-semibold tracking-tight">
+                      {stat.value}
+                    </p>
+                    <p className="mt-2 text-sm text-zinc-700">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         <section id="devis" className="scroll-mt-24">
-          <div className="mx-auto max-w-6xl px-6 py-16">
-            <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-10">
+          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
+            <div className="rounded-2xl border border-zinc-200 bg-white p-10">
               <div className="max-w-2xl space-y-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-600">
+                  Devis
+                </p>
                 <h2 className="text-2xl font-semibold tracking-tight">
-                  Prestations sur devis
+                  Sur devis uniquement
                 </h2>
                 <p className="leading-7 text-zinc-700">
                   Chaque recrutement est différent. Le périmètre, le niveau de
@@ -337,7 +412,7 @@ export default function Home() {
                 </p>
                 <a
                   href="#contact"
-                  className="inline-flex h-11 items-center justify-center rounded-xl bg-zinc-900 px-6 text-sm font-semibold text-white transition hover:bg-zinc-800"
+                  className="inline-flex h-11 items-center justify-center rounded-lg bg-blue-950 px-6 text-sm font-semibold text-white transition hover:bg-blue-900"
                 >
                   Demander un devis
                 </a>
@@ -348,10 +423,13 @@ export default function Home() {
 
         <section
           id="contact"
-          className="scroll-mt-24 border-t border-zinc-200/70"
+          className="scroll-mt-24 border-t border-zinc-200 bg-zinc-50"
         >
-          <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-2">
+          <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-2 lg:px-8">
             <div className="space-y-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-600">
+                Contact
+              </p>
               <h2 className="text-2xl font-semibold tracking-tight">
                 Contact
               </h2>
@@ -365,7 +443,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-zinc-200 bg-white p-7">
+            <div className="rounded-2xl border border-zinc-200 bg-white p-7">
               <ContactForm />
             </div>
           </div>
@@ -373,23 +451,25 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-zinc-200 bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-10">
+        <div className="mx-auto max-w-6xl px-6 py-12 lg:px-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div className="space-y-2">
-              <p className="text-sm font-semibold text-zinc-900">NFZI Talent</p>
+              <p className="text-sm font-semibold tracking-tight text-zinc-950">
+                NFZI Talent
+              </p>
               <p className="text-sm text-zinc-600">
                 Consultant en recrutement freelance — Île-de-France
               </p>
             </div>
 
             <div className="space-y-3 text-sm text-zinc-600">
-              <p className="font-semibold text-zinc-900">Mentions légales</p>
+              <p className="font-semibold text-zinc-950">Mentions légales</p>
               <p>
                 Éditeur : NFZI Talent (site vitrine à destination des entreprises)
               </p>
               <p>Hébergement : Vercel (plateforme compatible Next.js)</p>
-              <details className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4">
-                <summary className="cursor-pointer text-sm font-semibold text-zinc-900">
+              <details className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+                <summary className="cursor-pointer text-sm font-semibold text-zinc-950">
                   Politique de confidentialité
                 </summary>
                 <div className="mt-3 space-y-3 text-sm text-zinc-700">
@@ -402,6 +482,12 @@ export default function Home() {
                     Les données sont envoyées à un prestataire tiers de gestion
                     de formulaires (selon la configuration) et ne sont pas
                     stockées sur ce site.
+                  </p>
+                  <p>
+                    Base légale : intérêt légitime (répondre à une demande
+                    entrante). Durée de conservation : le temps nécessaire au
+                    traitement de votre demande, selon la politique du
+                    prestataire tiers.
                   </p>
                   <p>
                     Vous pouvez exercer vos droits (accès, rectification,

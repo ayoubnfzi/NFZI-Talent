@@ -40,19 +40,19 @@ export default function ContactForm() {
     setStatus("sending");
 
     try {
+      const formData = new FormData();
+      formData.set("name", values.name);
+      formData.set("company", values.company);
+      formData.set("email", values.email);
+      formData.set("phone", values.phone);
+      formData.set("source", "nfzi-talent-one-page");
+
       const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          name: values.name,
-          email: values.email,
-          phone: values.phone,
-          company: values.company,
-          source: "nfzi-talent-one-page",
-        }),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -83,7 +83,7 @@ export default function ContactForm() {
             Nom <span className="text-zinc-500">*</span>
           </span>
           <input
-            className="h-11 w-full rounded-xl border border-zinc-200 bg-white px-4 text-zinc-900 outline-none ring-0 transition focus:border-zinc-400"
+            className="h-11 w-full rounded-lg border border-zinc-200 bg-white px-4 text-zinc-950 outline-none transition focus:border-blue-950/30 focus:ring-4 focus:ring-blue-950/10"
             name="name"
             type="text"
             required
@@ -99,7 +99,7 @@ export default function ContactForm() {
             Entreprise <span className="text-zinc-500">*</span>
           </span>
           <input
-            className="h-11 w-full rounded-xl border border-zinc-200 bg-white px-4 text-zinc-900 outline-none ring-0 transition focus:border-zinc-400"
+            className="h-11 w-full rounded-lg border border-zinc-200 bg-white px-4 text-zinc-950 outline-none transition focus:border-blue-950/30 focus:ring-4 focus:ring-blue-950/10"
             name="company"
             type="text"
             required
@@ -115,7 +115,7 @@ export default function ContactForm() {
             Email professionnel <span className="text-zinc-500">*</span>
           </span>
           <input
-            className="h-11 w-full rounded-xl border border-zinc-200 bg-white px-4 text-zinc-900 outline-none ring-0 transition focus:border-zinc-400"
+            className="h-11 w-full rounded-lg border border-zinc-200 bg-white px-4 text-zinc-950 outline-none transition focus:border-blue-950/30 focus:ring-4 focus:ring-blue-950/10"
             name="email"
             type="email"
             required
@@ -132,7 +132,7 @@ export default function ContactForm() {
             Numéro de téléphone <span className="text-zinc-500">*</span>
           </span>
           <input
-            className="h-11 w-full rounded-xl border border-zinc-200 bg-white px-4 text-zinc-900 outline-none ring-0 transition focus:border-zinc-400"
+            className="h-11 w-full rounded-lg border border-zinc-200 bg-white px-4 text-zinc-950 outline-none transition focus:border-blue-950/30 focus:ring-4 focus:ring-blue-950/10"
             name="phone"
             type="tel"
             required
@@ -157,7 +157,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isDisabled}
-          className="inline-flex h-11 items-center justify-center rounded-xl bg-zinc-900 px-6 text-sm font-semibold text-white transition hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex h-11 items-center justify-center rounded-lg bg-blue-950 px-6 text-sm font-semibold text-white transition hover:bg-blue-900 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {status === "sending" ? "Envoi en cours…" : "Envoyer ma demande"}
         </button>
