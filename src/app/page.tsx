@@ -499,7 +499,17 @@ export default function Home() {
           </div>
 
           <div className="mt-8 border-t border-zinc-200 pt-6 text-xs text-zinc-500">
-            © {new Date().getFullYear()} NFZI Talent. Tous droits réservés.
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <p>
+                © {new Date().getFullYear()} NFZI Talent. Tous droits réservés.
+              </p>
+              <a
+                href="https://bafode-cisse.vercel.app/"
+                className="text-zinc-500 hover:text-zinc-700"
+              >
+                Développement par Karlsefni
+              </a>
+            </div>
           </div>
         </div>
       </footer>
