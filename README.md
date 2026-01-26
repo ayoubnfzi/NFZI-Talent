@@ -21,7 +21,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Le formulaire envoie les données directement vers un service tiers (Formspree, Getform, Basin, etc.) : aucun backend applicatif n’est requis.
 
 - Copier [.env.example](.env.example) vers `.env.local`
-- Renseigner `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT`
+- Le projet est pré-configuré pour Formspree : `https://formspree.io/f/mdageygv`
+- (Optionnel) Remplacer `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` pour utiliser un autre endpoint
 
 La page one-page est dans `src/app/page.tsx`.
 

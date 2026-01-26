@@ -9,6 +9,7 @@ type FormValues = {
   email: string;
   phone: string;
   company: string;
+  message: string;
 };
 
 const INITIAL_VALUES: FormValues = {
@@ -16,10 +17,12 @@ const INITIAL_VALUES: FormValues = {
   email: "",
   phone: "",
   company: "",
+  message: "",
 };
 
 export default function ContactForm() {
-  const endpoint = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT;
+  const defaultEndpoint = "https://formspree.io/f/mdageygv";
+  const endpoint = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT ?? defaultEndpoint;
 
   const [values, setValues] = useState<FormValues>(INITIAL_VALUES);
   const [status, setStatus] = useState<SubmitStatus>("idle");
@@ -29,14 +32,6 @@ export default function ContactForm() {
     event.preventDefault();
     setErrorMessage(null);
 
-    if (!endpoint) {
-      setStatus("error");
-      setErrorMessage(
-        "Le formulaire n’est pas configuré. Veuillez réessayer plus tard."
-      );
-      return;
-    }
-
     setStatus("sending");
 
     try {
@@ -45,6 +40,7 @@ export default function ContactForm() {
       formData.set("company", values.company);
       formData.set("email", values.email);
       formData.set("phone", values.phone);
+      formData.set("message", values.message);
       formData.set("source", "nfzi-talent-one-page");
 
       const response = await fetch(endpoint, {
@@ -75,101 +71,116 @@ export default function ContactForm() {
 
   const isDisabled = status === "sending";
 
+  const fieldClassName =
+    "h-11 w-full border-b border-zinc-300 bg-transparent px-0 text-zinc-950 outline-none transition placeholder:text-zinc-400 focus:border-blue-950 disabled:cursor-not-allowed disabled:opacity-60";
+
+  const textareaClassName =
+    "w-full resize-none border-b border-zinc-300 bg-transparent px-0 py-3 text-zinc-950 outline-none transition placeholder:text-zinc-400 focus:border-blue-950 disabled:cursor-not-allowed disabled:opacity-60";
+
   return (
-    <form onSubmit={onSubmit} className="space-y-5">
-      <div className="grid gap-4 sm:grid-cols-2">
-        <label className="space-y-2">
-          <span className="text-sm font-medium text-zinc-900">
-            Nom <span className="text-zinc-500">*</span>
-          </span>
+    <form onSubmit={onSubmit} className="space-y-8">
+      <div className="grid gap-6 sm:grid-cols-2">
+        <label className="space-y-3">
+          <span className="text-sm font-medium text-zinc-900">Nom *</span>
           <input
-            className="h-11 w-full rounded-lg border border-zinc-200 bg-white px-4 text-zinc-950 outline-none transition focus:border-blue-950/30 focus:ring-4 focus:ring-blue-950/10"
+            className={fieldClassName}
             name="name"
             type="text"
             required
             autoComplete="name"
+            placeholder="Votre nom"
             value={values.name}
             onChange={(e) => setValues({ ...values, name: e.target.value })}
             disabled={isDisabled}
           />
         </label>
 
-        <label className="space-y-2">
-          <span className="text-sm font-medium text-zinc-900">
-            Entreprise <span className="text-zinc-500">*</span>
-          </span>
+        <label className="space-y-3">
+          <span className="text-sm font-medium text-zinc-900">Entreprise *</span>
           <input
-            className="h-11 w-full rounded-lg border border-zinc-200 bg-white px-4 text-zinc-950 outline-none transition focus:border-blue-950/30 focus:ring-4 focus:ring-blue-950/10"
+            className={fieldClassName}
             name="company"
             type="text"
             required
             autoComplete="organization"
+            placeholder="Nom de votre entreprise"
             value={values.company}
             onChange={(e) => setValues({ ...values, company: e.target.value })}
             disabled={isDisabled}
           />
         </label>
 
-        <label className="space-y-2">
-          <span className="text-sm font-medium text-zinc-900">
-            Email professionnel <span className="text-zinc-500">*</span>
-          </span>
+        <label className="space-y-3">
+          <span className="text-sm font-medium text-zinc-900">Email *</span>
           <input
-            className="h-11 w-full rounded-lg border border-zinc-200 bg-white px-4 text-zinc-950 outline-none transition focus:border-blue-950/30 focus:ring-4 focus:ring-blue-950/10"
+            className={fieldClassName}
             name="email"
             type="email"
             required
             autoComplete="email"
             inputMode="email"
+            placeholder="email@entreprise.com"
             value={values.email}
             onChange={(e) => setValues({ ...values, email: e.target.value })}
             disabled={isDisabled}
           />
         </label>
 
-        <label className="space-y-2">
-          <span className="text-sm font-medium text-zinc-900">
-            Numéro de téléphone <span className="text-zinc-500">*</span>
-          </span>
+        <label className="space-y-3">
+          <span className="text-sm font-medium text-zinc-900">Téléphone</span>
           <input
-            className="h-11 w-full rounded-lg border border-zinc-200 bg-white px-4 text-zinc-950 outline-none transition focus:border-blue-950/30 focus:ring-4 focus:ring-blue-950/10"
+            className={fieldClassName}
             name="phone"
             type="tel"
-            required
             autoComplete="tel"
             inputMode="tel"
+            placeholder="Optionnel"
             value={values.phone}
             onChange={(e) => setValues({ ...values, phone: e.target.value })}
+            disabled={isDisabled}
+          />
+        </label>
+
+        <label className="space-y-3 sm:col-span-2">
+          <span className="text-sm font-medium text-zinc-900">Message *</span>
+          <textarea
+            className={textareaClassName}
+            name="message"
+            required
+            rows={5}
+            placeholder="Décrivez votre besoin (poste, contexte, délai, localisation, type de contrat…)"
+            value={values.message}
+            onChange={(e) => setValues({ ...values, message: e.target.value })}
             disabled={isDisabled}
           />
         </label>
       </div>
 
       <div className="space-y-2">
-        <p className="text-sm text-zinc-600">
+        <p className="text-sm leading-6 text-zinc-600">
           En soumettant ce formulaire, vous acceptez que vos informations soient
           utilisées uniquement pour vous recontacter au sujet de votre demande.
           Aucune donnée n’est stockée sur ce site.
         </p>
       </div>
 
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div className="flex flex-col items-stretch gap-3">
         <button
           type="submit"
           disabled={isDisabled}
-          className="inline-flex h-11 items-center justify-center rounded-lg bg-blue-950 px-6 text-sm font-semibold text-white transition hover:bg-blue-900 disabled:cursor-not-allowed disabled:opacity-60"
+          className="mx-auto inline-flex h-11 w-full max-w-sm items-center justify-center rounded-md bg-blue-950 px-8 text-sm font-semibold text-white transition hover:bg-blue-900 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {status === "sending" ? "Envoi en cours…" : "Envoyer ma demande"}
+          {status === "sending" ? "Envoi en cours…" : "Envoyer"}
         </button>
 
         {status === "success" ? (
-          <p className="text-sm font-medium text-zinc-900">
+          <p className="text-center text-sm font-medium text-zinc-900">
             Merci. Votre demande a bien été envoyée.
           </p>
         ) : null}
 
         {status === "error" ? (
-          <p className="text-sm font-medium text-red-700">
+          <p className="text-center text-sm font-medium text-red-700">
             {errorMessage ?? "Une erreur est survenue."}
           </p>
         ) : null}
