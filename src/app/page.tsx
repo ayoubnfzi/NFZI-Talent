@@ -128,10 +128,7 @@ export default function Home() {
                 >
                   Découvrir l’accompagnement
                 </a>
-              </div>
-              <p className="text-sm text-zinc-600">
-                Aucun email ni numéro de téléphone n’est affiché : les demandes
-                passent uniquement par le formulaire.
+             
               </p>
             </div>
 
