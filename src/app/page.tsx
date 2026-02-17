@@ -434,7 +434,6 @@ export default function Home() {
                 Décrivez votre besoin : je reviens vers vous rapidement pour
                 qualifier le contexte et vous proposer une approche.
               </p>
-              <p className="text-sm text-zinc-700">
                 
               </p>
             </div>
