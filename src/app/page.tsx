@@ -438,8 +438,7 @@ export default function Home() {
                 qualifier le contexte et vous proposer une approche.
               </p>
               <p className="text-sm text-zinc-600">
-                Pour préserver la confidentialité, aucune coordonnée personnelle
-                n’est affichée.
+                contact@nfzitalent.fr
               </p>
             </div>
 
