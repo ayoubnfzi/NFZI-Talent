@@ -438,7 +438,7 @@ export default function Home() {
                 qualifier le contexte et vous proposer une approche.
               </p>
               <p className="text-sm text-zinc-700">
-                contact@nfzitalent.fr
+                
               </p>
             </div>
 
@@ -458,6 +458,11 @@ export default function Home() {
               </p>
               <p className="text-sm text-zinc-600">
                 Consultant en recrutement freelance — partout en France
+              </p>
+            </div>
+            
+            <p className="text-sm text-zinc-600">
+                contact@nfzitalent.fr
               </p>
             </div>
 
