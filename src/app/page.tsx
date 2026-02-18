@@ -129,7 +129,7 @@ export default function Home() {
                   Découvrir l’accompagnement
                </a>
             </div>
-               
+              
             <div className="rounded-2xl border border-zinc-200 bg-white p-8">
               <div className="space-y-5">
                 <p className="text-sm font-semibold tracking-tight text-zinc-950">
