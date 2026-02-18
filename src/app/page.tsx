@@ -5,7 +5,7 @@ const NAV_ITEMS = [
   { href: "#services", label: "Services" },
   { href: "#processus", label: "Processus" },
   { href: "#credibilite", label: "Crédibilité" },
-  { href: "#devis", label: "Devis" },
+  { href: "#devis", label: "Devis" }, 
   { href: "#contact", label: "Contact" },
 ];
 
@@ -127,9 +127,7 @@ export default function Home() {
                   className="inline-flex h-11 items-center justify-center rounded-lg border border-zinc-200 bg-white px-6 text-sm font-semibold text-zinc-950 transition hover:border-zinc-300 hover:text-zinc-950"
                 >
                   Découvrir l’accompagnement
-                </a>
-
-               </p>
+               </a>
             </div>
                
             <div className="rounded-2xl border border-zinc-200 bg-white p-8">
