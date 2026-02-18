@@ -126,9 +126,9 @@ export default function Home() {
                   href="#services"
                   className="inline-flex h-11 items-center justify-center rounded-lg border border-zinc-200 bg-white px-6 text-sm font-semibold text-zinc-950 transition hover:border-zinc-300 hover:text-zinc-950"
                 >
-                  Découvrir l’accompagnement
+                  Découvrir l’accompagnement 
                </a>
-            </div>
+            </div> 
             <div className="rounded-2xl border border-zinc-200 bg-white p-8">
               <div className="space-y-5">
                 <p className="text-sm font-semibold tracking-tight text-zinc-950">
