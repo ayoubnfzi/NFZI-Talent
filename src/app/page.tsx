@@ -433,8 +433,6 @@ export default function Home() {
                 Décrivez votre besoin : je reviens vers vous rapidement pour
                 qualifier le contexte et vous proposer une approche.
               </p>
-                
-              </p>
             </div>
 
             <div className="rounded-2xl border border-zinc-200 bg-white p-7">
@@ -455,11 +453,8 @@ export default function Home() {
                 Consultant en recrutement freelance — partout en France
               </p>
             </div>
-            
-            <p className="text-sm text-zinc-600">
-                contact@nfzitalent.fr
-              </p>
-            </div>
+
+            <p className="text-sm text-zinc-600">contact@nfzitalent.fr</p>
 
             <div className="space-y-3 text-sm text-zinc-600">
               <p className="font-semibold text-zinc-950">Mentions légales</p>
